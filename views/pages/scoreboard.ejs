@@ -1,0 +1,154 @@
+<%- include('../partials/header'); %>
+<title>Events</title>
+</head>
+
+
+<nav x-data="{ open: false }" class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex">
+          <div class="flex-shrink-0 flex items-center">
+            <img class="block lg:hidden h-8 w-auto" src="/img/logos/workflow-mark-on-white.svg" alt="" />
+            <img class="hidden lg:block h-8 w-auto" src="/img/logos/workflow-logo-on-white.svg" alt="" />
+          </div>
+          <div class="hidden sm:ml-6 sm:flex">
+            <a href="#" class="inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5 text-gray-900 hover:text-gray-700 hover:border-indigo-500 focus:outline-none focus:border-grey-300 transition duration-150 ease-in-out">
+             Home
+            </a>
+            <a href="#" class="ml-8 inline-flex items-center border-indigo-500 px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-indigo-500 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+              Events
+            </a>
+            <a href="#" class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-indigo-500 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+              Scoreboard
+            </a>
+            <a href="#" class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-indigo-500 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+              Schedule
+            </a>
+          </div>
+        </div>
+        <div class="-mr-2 flex items-center sm:hidden">
+          <button @click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+              <path :class="{'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              <path :class="{'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div :class="{'block': open, 'hidden': !open}" class="hidden sm:hidden">
+      <div class="pt-2 pb-3">
+        <a href="#" class="block pl-3 pr-4 py-2 border-l-4  text-base font-medium focus:outline-none focus:text-indigo-800 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-500 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out">Home</a>
+        <a href="#" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-indigo-500 border-transparent text-base font-medium text-gray-600 text-indigo-700 bg-indigo-50 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-indigo-300 transition duration-150 ease-in-out">Events</a>
+        <a href="#" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 focus:outline-none focus:text-indigo-800 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-500 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out">Scoreboard</a>
+        <a href="#" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 focus:outline-none focus:text-indigo-800 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-500 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out">Schedule</a>
+      </div>
+    </div>
+  </nav> 
+
+
+  
+  <div class="mx-6 my-6 mt-8">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      Current Standings
+    </h3>
+    <div class="mt-5 grid grid-cols-1 rounded-lg bg-white overflow-hidden shadow md:grid-cols-4">
+      <div>
+        <div class="px-3 py-5 sm:p-6">
+          <dl>
+            <dt class="text-xs leading-6 font-bold tracking-widest text-gray-400">
+              RED
+            </dt>
+            <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+              <div class="flex items-baseline text-3xl leading-8 font-semibold text-red-600">
+                678
+                <span class="ml-2 text-sm leading-5 font-medium text-gray-500">
+                  total points
+                </span>
+              </div>
+              <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium leading-5 bg-green-100 text-green-800 md:mt-2 lg:mt-0">
+                <svg class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                1st
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-200 md:border-0 md:border-l">
+        <div class="px-3 py-5 sm:p-6">
+          <dl>
+            <dt class="text-xs leading-6 font-bold tracking-widest text-gray-400">
+              BLUE
+            </dt>
+            <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+              <div class="flex items-baseline text-3xl leading-8 font-semibold text-blue-600">
+                592
+                <span class="ml-2 text-sm leading-5 font-medium text-gray-500">
+                  total points
+                </span>
+              </div>
+              <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium leading-5 bg-green-100 text-green-800 md:mt-2 lg:mt-0">
+                <svg class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                3rd
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+
+      <div class="border-t border-gray-200 md:border-0 md:border-l">
+        <div class="px-3 py-5 sm:p-6">
+            <dl>
+              <dt class="text-xs leading-6 font-bold tracking-widest text-gray-400">
+                GREEN
+              </dt>
+              <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                <div class="flex items-baseline text-3xl leading-8 font-semibold text-green-600">
+                  592
+                  <span class="ml-2 text-sm leading-5 font-medium text-gray-500">
+                    total points
+                  </span>
+                </div>
+                <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium leading-5 bg-green-100 text-green-800 md:mt-2 lg:mt-0">
+                  <svg class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  2nd
+                </div>
+              </dd>
+            </dl>
+          </div>
+      </div>
+
+      <div class="border-t border-gray-200 md:border-0 md:border-l">
+        <div class="px-3 py-5 sm:p-6">
+            <dl>
+              <dt class="text-xs leading-6 font-bold tracking-widest text-gray-400">
+                YELLOW
+              </dt>
+              <dd class="mt-1 flex justify-between items-baseline md:block lg:flex">
+                <div class="flex items-baseline text-3xl leading-8 font-semibold text-yellow-400">
+                  592
+                  <span class="ml-2 text-sm leading-5 font-medium text-gray-500">
+                    total points
+                  </span>
+                </div>
+                <div class="inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium leading-5 bg-green-100 text-green-800 md:mt-2 lg:mt-0">
+                  <svg class="-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  4th
+                </div>
+              </dd>
+            </dl>
+          </div>
+      </div>
+    </div>
+  </div>
+  <%- include('../partials/footer'); %>
